@@ -1,15 +1,16 @@
 /* MessagesComponent's private CSS styles */
 h2 {
   color: red;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: lighter;
 }
 body {
   margin: 2em;
 }
+
 body, input[text], button {
   color: crimson;
-  font-family: Cambria, Georgia;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 button.clear {

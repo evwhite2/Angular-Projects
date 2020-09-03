@@ -1,3 +1,9 @@
 <h1>{{title}}</h1>
-<app-heroes></app-heroes>
+<nav>
+    <!-- The routerLink is the selector for the RouterLink directive that turns user clicks into router navigations. -->
+    <a routerLink="/heroes"> View Heroes</a>
+    <a routerLink="/">Home</a>
+</nav>
+<!-- The RouterOutlet is one of the router directives that became available to the AppComponent because AppModule imports AppRoutingModule which exported RouterModule. When using the command "ng generate module app-routing --flat --module=app" at the start of implementing the routerModule, this import (router-outlet) was added because of the --module=app flag. If you manually created app-routing.module.ts or used a tool other than the CLI to do so, you'll need to import AppRoutingModule into app.module.ts and add it to the imports array of the NgModule. -->
+<router-outlet></router-outlet>
 <app-messages></app-messages>
