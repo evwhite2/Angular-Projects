@@ -1,12 +1,18 @@
 a{
     color: blue;
     font-size: 20px;
+    margin: 15px;
 }
+
 h1, h2, h3{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 nav{
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    justify-content: space-evenly;
+    justify-content: left;
+}
+.main{
+    display: flex;
+    max-width: 50%;
 }
