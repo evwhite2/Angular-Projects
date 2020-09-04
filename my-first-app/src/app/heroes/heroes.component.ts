@@ -10,7 +10,6 @@ import { MessageService } from '../message.service';
 })
 export class HeroesComponent implements OnInit {
 
-
   heroes: Hero[];
   selectedHero: Hero;
 
@@ -30,4 +29,17 @@ export class HeroesComponent implements OnInit {
     this._heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 
+  add(name: string): void{
+    name = name.trim();
+    if(!name){ return; }
+    this._heroService.addHero({name} as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      })
+  }
+
+  delete(hero: Hero): void{
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this._heroService.deleteHero(hero).subscribe(); //if you do not use the suscribe service, the delete request will not be sent to the server, as a rule, Observable does NOTHING until it subscribes
+  }
 }
