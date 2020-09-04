@@ -1,12 +1,4 @@
 <h2>My Heroes</h2>
-<div>
-  <label>Hero name:
-    <input #heroName />
-  </label>
-  <button (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
-</div>
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
@@ -16,4 +8,15 @@
     <button class="delete" title="delete hero" (click)="delete(hero)">X</button>
   </li>
 </ul>
+
+<h3> Add New Hero</h3>
+<div>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
 

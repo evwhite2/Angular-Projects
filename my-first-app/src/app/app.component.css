@@ -1,18 +1,35 @@
-a{
-    color: blue;
-    font-size: 20px;
-    margin: 15px;
-}
-
-h1, h2, h3{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-nav{
-    display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    justify-content: left;
-}
-.main{
-    display: flex;
-    max-width: 50%;
-}
+/* AppComponent's private CSS styles */
+h1 {
+    font-size: 1.2em;
+    margin-bottom: 0;
+  }
+  h2 {
+    font-size: 2em;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  nav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  nav a:visited, a:link {
+    color: #334953;
+  }
+  nav a:hover {
+    color: #039be5;
+    background-color: #CFD8DC;
+  }
+  nav a.active {
+    color: #039be5;
+  }
+  
+  
+  /*
+  Copyright Google LLC. All Rights Reserved.
+  Use of this source code is governed by an MIT-style license that
+  can be found in the LICENSE file at http://angular.io/license
+  */

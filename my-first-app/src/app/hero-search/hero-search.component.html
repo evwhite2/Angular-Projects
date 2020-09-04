@@ -1,0 +1,18 @@
+<div id="search-component">
+
+    <h4><label for="search-box">Hero Search</label></h4>
+
+    <input #searchBox id="searchBox" (input)="search(searchBox.value)"/>
+    <ul class="search-results">
+        <li *ngFor="let hero of heroes$ | async" >
+            <a routerLink="/detail/{{hero.id}}">
+                {{hero.name}}
+            </a>
+        </li>
+    </ul>
+
+</div>
+<!-- 
+    1. The $ is a conviction that 'heroes' is an obserable, not an array
+    2. The *ngFor cannot do anything with an obserable, which is why the async pipe was included.... which identifies Angular's AsyncPipe then subscribes to an obserable automatically so that you need not do it in the component class
+-->
