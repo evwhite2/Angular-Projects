@@ -10,10 +10,6 @@ export class MediaItemComponent implements OnInit {
   @Input() mediaItem;
   @Output() delete= new EventEmitter();
 
-  wasWatched(){
-    return true;
-  }
-
   onDelete(){
     console.log("delete");
     this.delete.emit(this.mediaItem);

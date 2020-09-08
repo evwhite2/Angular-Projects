@@ -12,15 +12,15 @@ export class MediaItemListComponent  {
       id: 1,
       name: "Carey",
       medium: "film",
-      category: "Horror",
+      category: [" Horror"],
       year: 1976,
-      watchedOn: 3463654,
+      watchedOn: 11,
       isFavorite: false
     },{
       id: 2,
       name: "Out Cold",
       medium: "film",
-      category: "Comedy, Action",
+      category: [" Comedy", " Action"],
       year: 2001,
       watchedOn: 342235,
       isFavorite: true
@@ -28,7 +28,7 @@ export class MediaItemListComponent  {
       id: 3,
       name: "Avatar",
       medium: "series",
-      category: "Anime",
+      category: [" Anime", " Fantasy"],
       year: 2005,
       watchedOn: 23423432,
       isFavorite: false
@@ -36,7 +36,7 @@ export class MediaItemListComponent  {
       id: 4,
       name: "Ugly Americans",
       medium: "series",
-      category: "Comedy",
+      category: [" Comedy", " Fantasy"],
       year: 2010,
       watchedOn: 2423345,
       isFavorite: false

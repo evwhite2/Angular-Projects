@@ -38,14 +38,14 @@
     cursor: pointer;
   }
   .favorite.is-favorite {
-      fill: #37ad79;
+      fill: #ec4342;
   }
   .favorite.is-favorite-hovering {
-    fill: #37ad79;      
+    fill: #ec4342;      
     cursor: pointer;
   }
   .favorite.is-favorite.is-favorite-hovering {
-      fill: #ec4342;
+      fill: #bdc2c5;
   }
   .delete-this, .watch-this {
     color: #ffffff;
