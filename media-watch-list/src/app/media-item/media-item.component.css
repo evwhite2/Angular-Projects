@@ -24,6 +24,7 @@
   :host.medium-series > h2 {
     color: #45bf94;
   }
+  
   .tools {
     margin-top: 8px;
     display: flex;
@@ -34,25 +35,24 @@
     width: 24px;
     height: 24px;
     fill: #bdc2c5;
+    cursor: pointer;
   }
   .favorite.is-favorite {
       fill: #37ad79;
   }
   .favorite.is-favorite-hovering {
-      fill: #45bf94;
+    fill: #37ad79;      
+    cursor: pointer;
   }
   .favorite.is-favorite.is-favorite-hovering {
       fill: #ec4342;
   }
-  .delete-this {
-    font-size: .8em;
-    border-radius: 4px;
+  .delete-this, .watch-this {
     color: #ffffff;
-    cursor: pointer;
   }
   .details-this {
     padding: 4px;
-    font-size: .8em;
+    font-size: 1.1em;
     border-radius: 4px;
     color: #ffffff;
     text-decoration: none;

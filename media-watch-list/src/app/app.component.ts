@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MediaItemListComponent } from "./media-item-list/media-item-list.component";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'media-watch-list';
+  mediaItems= { MediaItemListComponent };
+
+  onMediaItemDelete(mediaItem){
+
+  }
 }

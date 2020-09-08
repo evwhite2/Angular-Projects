@@ -1,0 +1,13 @@
+
+ <div class="columns is-multiline is-pulled-left">
+    <div *ngFor="let item of mediaItems">
+        <div class="column is-half" >
+          <app-media-item 
+          [mediaItem]="item"
+          (delete)="onMediaItemDelete($event)"
+          [ngClass]="{ 'medium-movies': item.medium ==='film', 'medium-series': item.medium ==='series' }"
+          >
+        </app-media-item>
+        </div>
+    </div>
+ </div>

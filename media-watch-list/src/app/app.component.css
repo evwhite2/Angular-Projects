@@ -1,4 +1,7 @@
+h1{
+    padding-top: 2em;
+}
 .centered{
-    margin-left: 5em;
-    margin-right: 5em;
+    margin-left: 10%;
+    margin-right: 10%;
 }
