@@ -1,0 +1,14 @@
+form{
+    display: flex;
+    flex-direction: column;
+    background-color: #29394a;
+    padding:1.5em;
+    border-radius: 1.5em;
+    border: solid beige ;
+}
+label{
+    padding-right: 2em;
+}
+select{
+    min-width: 10em;
+}
