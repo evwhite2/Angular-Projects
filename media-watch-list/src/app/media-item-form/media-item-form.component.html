@@ -1,19 +1,22 @@
-<form>
+<form 
+[formGroup]="form"
+(ngSubmit)="onSubmit(form.value)">
         <div class="field">
             <label for="medium">Medium</label>
-            <select name="medium" ngModel>
+            <select name="medium" formControlName="medium">
                 <option value="Movie">Movie</option>
                 <option value="Series">Series</option>
             </select>
         </div>
         <div class="field">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" formControlName="name">
         </div>
         <div class="field">
             <label for="category">Category</label>
-            <select name="category" id="category">
+            <select name="category" id="category" formControlName="category">
                 <option value="Science Fiction">Science Fiction</option>
+                <option value="Fantasy">Fantasy</option>
                 <option value="Action">Action</option>
                 <option value="Comedy">Comedy</option>
                 <option value="Drama">Drama</option>
@@ -23,6 +26,26 @@
             </select>
         </div>
         <div class="field">
-        <input value="Add" type="submit" name="add" class="button is-small is-success">
+            <label for="year">Year</label>
+            <input type="text" name="year" id="year" maxLength="4" formControlName="year">
+        </div>
+
+        <div *ngIf="form.get('name').hasError('pattern')" class="message is-small is-danger">
+            <div class="message-body">
+                <p>Name has invalid character(s)</p>
+            </div>
+        </div>
+
+        <!-- does not work -->
+        <div *ngIf="form.get('year').errors as yearErrors" class="message is-small is-danger">
+            <div class="message-body">
+                <p>Year must be between {{yearErrors.year.min}} and {{yearErrors.year.max}}</p>
+            </div>
+        </div>
+
+
+        <div class="field">
+        <input value="Add" type="submit" class="button is-small is-success" [disabled]="!form.valid">
+        
         </div>
 </form>
