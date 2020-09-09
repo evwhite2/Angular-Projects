@@ -4,8 +4,8 @@
         <div class="field">
             <label for="medium">Medium</label>
             <select name="medium" formControlName="medium">
-                <option value="Movie">Movie</option>
-                <option value="Series">Series</option>
+                <option value="film">Film</option>
+                <option value="series">Series</option>
             </select>
         </div>
         <div class="field">
@@ -30,13 +30,13 @@
             <input type="text" name="year" id="year" maxLength="4" formControlName="year">
         </div>
 
+        <!-- form validation messages -->
         <div *ngIf="form.get('name').hasError('pattern')" class="message is-small is-danger">
             <div class="message-body">
                 <p>Name has invalid character(s)</p>
             </div>
         </div>
 
-        <!-- does not work -->
         <div *ngIf="form.get('year').errors as yearErrors" class="message is-small is-danger">
             <div class="message-body">
                 <p>Year must be between {{yearErrors.year.min}} and {{yearErrors.year.max}}</p>

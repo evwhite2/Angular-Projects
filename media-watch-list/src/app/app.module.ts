@@ -10,7 +10,6 @@ import { FavoriteDirective } from './favorite.directive';
 import {CategoryListPipe} from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form/media-item-form.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
