@@ -5,10 +5,10 @@ form{
     padding:1.5em;
     border-radius: 1.5em;
     border: solid beige ;
-}
-label{
-    padding-right: 2em;
+    margin:10px;
+    max-width: 20em;
 }
 select{
     min-width: 10em;
+    max-width: 18em;
 }

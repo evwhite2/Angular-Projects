@@ -1,14 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { Observable, Subject } from 'rxjs';
 import {OmdbApiService } from '../omdb-api.service';
 import { DataTile } from '../dataTile';
-
-import {
-  debounceTime, distinctUntilChanged, switchMap
-} from 'rxjs/operators';
-
+import {MOCKDATA} from '../mock2';
+import { isNull } from '@angular/compiler/src/output/output_ast';
+import { MediaItemService } from '../media-item.service';
 
 @Component({
   selector: 'app-search-new-media',
@@ -18,33 +14,50 @@ import {
 
 export class SearchNewMediaComponent implements OnInit{
   
-  @Input() title;
-  @Output() addBtn= new EventEmitter();
-  @Output() searchBtn= new EventEmitter();
+  @Input() searchTerm: String;
 
-  private result = [];
-  result$ : Observable<DataTile[]>
-  private searchTerm = new Subject<string>();
+  public result= [];
+  public allresults;
+  title;
 
   constructor(
-    private route: ActivatedRoute, 
-    private location: Location,
-    private omdb: OmdbApiService) {   }
+    private omdb: OmdbApiService, 
+    private mediaItemService: MediaItemService) {  
+      this.allresults = new Subject<DataTile[]>()
+     }
+  ngOnInit() {
+    }
 
-  
   searchTitle(term:string){
+    term= this.convertString(term);
     this.omdb.getSearchResult(term)
     .subscribe(data=>{
-      console.log("1111", data)
-      this.result.push(data);
-      });
+      JSON.stringify(data)
+      this.allresults.observers.push(data);
+    })
+      this.clearSearch();
+      this.result =this.allresults.observers;
   }
 
-  ngOnInit() {
-    this.searchTitle("t=out+cold")
-    console.log(this.result.map(i=>{
-      console.log("222", i)
-    }));
+  onAddTitle(title){
+    console.log(title);
+    // let newTitle: !!!!!!!!!!! need media Item Constructor
+    this.mediaItemService.add(title)
+  }
+
+  convertString(term: string){
+    let termArray = term.substring(0, term.length).split("");
+    for (var i = 0; i< termArray.length-1; i++){
+      if(termArray[i] ===" "){
+        termArray[i] = "+"
+      }
+    }
+    term = termArray.join("");
+    return term;
+  }
+
+  clearSearch(){
+    this.allresults.observers=[];
   }
 
   }

@@ -7,6 +7,8 @@ import { catchError, tap, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class OmdbApiService {
 
   resultsURL= 'api/result';
@@ -18,14 +20,14 @@ export class OmdbApiService {
 
   constructor(private http: HttpClient) {}
 
-  getSearchResult(searchTerm: string): Observable<DataTile[]>{
-    return this.http.get<string[]>(`http://www.omdbapi.com/?apikey=3c94efbd&${searchTerm}`)
-      .pipe(tap(data=>{
-        JSON.stringify(data);
+  getSearchResult(searchTerm: string): Observable<DataTile>{
+    let url = `http://www.omdbapi.com/?apikey=3c94efbd&t=${searchTerm}`
+    return this.http.get<DataTile>(url)
+    .pipe(tap( data=>{
       console.log("Service Response: ", data), catchError(this.handleError);
     }));
   }
-  
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
@@ -37,15 +39,5 @@ export class OmdbApiService {
     return throwError(errorMessage);
 } 
 
-  // private handleError<T>(operation = 'operation', result?: T){
-  //   return (error: any): Observable<T> =>{
-  //     // TODO: send the error to remote logging infrastructure
-  //     console.error(error)
-  //     // TODO: better job of transforming error for user consumption
-  //     console.log(`${operation} failed: ${error.message}`);
-  //     // Let the app keep running by returning an empty result.
-  //     return of(result as T);
-  //   }
-  // }
 }
 

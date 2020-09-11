@@ -13,7 +13,7 @@ import { MediaItemFormComponent } from './media-item-form/media-item-form.compon
 import { lookupListsToken, lookupLists} from './providers';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchNewMediaComponent } from './search-new-media/search-new-media.component';
-
+import {ResultListItemComponent} from './result-list-item/result-list-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { SearchNewMediaComponent } from './search-new-media/search-new-media.com
     CategoryListPipe,
     MediaItemFormComponent,
     DashboardComponent,
-    SearchNewMediaComponent
+    SearchNewMediaComponent, 
+    ResultListItemComponent
   ],
   imports: [
     BrowserModule,

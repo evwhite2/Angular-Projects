@@ -1,33 +1,33 @@
-<div id="search-component">
-<div class="container is-fluid">
+  <div class="container is-fluid">
     <h1 class="redhead title" >Search titles</h1>
-    <h2 class="whitetxt subtitle" >Powered by OMDB api</h2>
+    <h2 class="whitetxt subtitle" >Powered by OMDb</h2>
 
-    <div class="columns" >
+    <div class="columns is-multiline">
         <div class="column is-half">
             <div class="field is-grouped">
                 <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="Enter a title" #searchTerm>
+                  <input id = "searchTerm" class="input" type="text" placeholder="Enter a title" #searchTerm>
                 </p>
                 <p class="control">
-                  <a class="button is-info" (click)="searchTerm()">
+                  <a class="button is-info" (click)="searchTitle(searchTerm.value)">
                     Search
                   </a>
                 </p>
               </div>
         </div>
     </div>
-    
-    <div class="columns visable">
-            <div class="columns is-half" *ngFor="let title of result$ | async">
-                <p>{{title}}</p>
-                <h2>{{title.title}}</h2>
-                <div class="details-this">
-                  <div>{{title.category}}</div>
-                  <div> Year Released: {{title.year}} </div>
-                </div>
-            </div>
-        
+
+    <div class="columns is-multiline" >
+      <div *ngFor="let title of result">
+       <div class="column is-half" >
+          <app-result-list-item
+          [ngClass]="{ 'medium-movies': title.Type ==='movie', 'medium-series': title.Type ==='series' }"
+          [title]="title"
+          (add)= "onAddTitle($event)"
+          >
+          </app-result-list-item>
+        </div>
+      </div>
     </div>
-</div>
+
 </div>

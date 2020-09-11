@@ -20,11 +20,8 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
-body {
-  margin: 0em;
-  padding: 0px;
+html{
   background-color: #32435b;
-  height: 100vh;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
