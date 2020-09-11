@@ -1,14 +1,20 @@
-<div class="container is-fluid is-centered has-text-white">
-  <div class="columns is-centered">
-       <div class="column ">  
-        <h1 class="title has-text-white is-vcentered">Media Watch List</h1>
-        <app-media-item-list></app-media-item-list>
-      </div> 
-      <div class="column is-4">
-        <h1 class="title has-text-white is-vcentered">Add new Media</h1>
-        <app-media-item-form></app-media-item-form>
-      </div>
-
+<nav class="navbar is-black" role="navigation" aria-label="main-navigation">
+  <div class="navbar-brand">
+    <h1 class="title has-text-white" style="padding-left: 1.5em">slackerTrack</h1>
+    <a (click)="toggleNavbar()" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="routesBar" #navBurger>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
-</div>
- 
+
+  <div id="routesBar" class="navbar-menu navbar-end" style="padding-right: 2em;" #navMenu>
+      <a class="navbar-item" routerLink="/">WatchList</a>
+      <hr class="navbar-divider">
+      <a class="navbar-item " routerLink="/search">Search</a>
+  </div>
+
+</nav>
+
+<router-outlet></router-outlet>
+

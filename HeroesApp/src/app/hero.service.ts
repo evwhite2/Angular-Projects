@@ -42,7 +42,6 @@ export class HeroService {
       tap(_ =>
         this.log(`fetched hero with ID: ${id}`)), catchError(this.handleError<Hero>(`getHero(${id}`))
     )
-    // return of(HEROES.find(hero=> hero.id === id));
   }
 
   private log(message: string) {

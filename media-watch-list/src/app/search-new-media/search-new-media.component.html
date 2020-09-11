@@ -1,0 +1,33 @@
+<div id="search-component">
+<div class="container is-fluid">
+    <h1 class="redhead title" >Search titles</h1>
+    <h2 class="whitetxt subtitle" >Powered by OMDB api</h2>
+
+    <div class="columns" >
+        <div class="column is-half">
+            <div class="field is-grouped">
+                <p class="control is-expanded">
+                  <input class="input" type="text" placeholder="Enter a title" #searchTerm>
+                </p>
+                <p class="control">
+                  <a class="button is-info" (click)="searchTerm()">
+                    Search
+                  </a>
+                </p>
+              </div>
+        </div>
+    </div>
+    
+    <div class="columns visable">
+            <div class="columns is-half" *ngFor="let title of result$ | async">
+                <p>{{title}}</p>
+                <h2>{{title.title}}</h2>
+                <div class="details-this">
+                  <div>{{title.category}}</div>
+                  <div> Year Released: {{title.year}} </div>
+                </div>
+            </div>
+        
+    </div>
+</div>
+</div>

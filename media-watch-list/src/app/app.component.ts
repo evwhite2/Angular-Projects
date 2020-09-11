@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { MediaItemListComponent } from "./media-item-list/media-item-list.component";
+import { Component, ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +6,11 @@ import { MediaItemListComponent } from "./media-item-list/media-item-list.compon
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'media-watch-list';
-  mediaItems= { MediaItemListComponent };
-
-  onMediaItemDelete(mediaItem){
-
+  @ViewChild('navBurger') navBurger: ElementRef;
+  @ViewChild('navMenu') navMenu: ElementRef;
+  toggleNavbar() {
+    this.navBurger.nativeElement.classList.toggle('is-active');
+    this.navMenu.nativeElement.classList.toggle('is-active');
+    this.navMenu.nativeElement.classList.toggle('hoverable');
   }
 }
