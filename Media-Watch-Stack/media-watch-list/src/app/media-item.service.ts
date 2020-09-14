@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MediaItemTemplate } from './mediaItem';
 
 @Injectable({
   providedIn: 'root' 

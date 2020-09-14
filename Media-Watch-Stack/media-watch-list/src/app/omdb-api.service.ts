@@ -21,7 +21,7 @@ export class OmdbApiService {
   constructor(private http: HttpClient) {}
 
   getSearchResult(searchTerm: string): Observable<DataTile>{
-    let url = `http://www.omdbapi.com/?apikey=3c94efbd&t=${searchTerm}`
+    let url = `http://www.omdbapi.com/?apikey=3c94efbd&s=${searchTerm}`
     return this.http.get<DataTile>(url)
     .pipe(tap( data=>{
       console.log("Service Response: ", data), catchError(this.handleError);

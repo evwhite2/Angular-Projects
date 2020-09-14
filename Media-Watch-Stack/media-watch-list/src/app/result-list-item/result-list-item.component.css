@@ -1,32 +1,39 @@
+
+.dets{
+  margin-top: 1em;
+  font-size: 22px;
+}
 .button{
+  float: right;
   margin-top:1.2em;
   margin-left: .2em;
-}
-img{
-  position: relative;
-  float: right;
-  width: 225px;
-  height:325px;
 }
 p{
   font-family: 'Arial Narrow', Arial, sans-serif;
   font-size: 0.80em;
   padding-top:5px;
+  padding-bottom: 3px;
+}
+.poster{
+  position: relative;  
+  float: right;
+  width: 20vh;
+  height: 30vh;
+  overflow: hidden;
 }
 
 :host {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    height: 500px;
+    width: 45vh;
+    height: 55vh;
     border: 2px solid;
     background-color: #29394b;
     padding: 10px;
     color: #bdc2c5;
   }
-  h2 {
+  span {
     font-size: 2.3em;
-    flex: 1;
   }
   :host.medium-movies {
     border-color: #53ace4;
@@ -41,40 +48,37 @@ p{
     color: #45bf94;
   }
   
-  .details-this {
-    padding-top: 1em;
-    font-size: 1.5em;
-    color: #ffffff;
-    text-decoration: none;
-    height:100%;
-  }
 
   @media only screen and (max-width: 770px){
-    img{
-      min-width: 50x;
-      min-height: 75px;
+    .dets{
+      align-self: center;
+      margin-top: 1em;
+      font-size: 16px;
+      overflow: hidden;
+    }
+    .button{
+      margin-top:.2em;
+      margin-left: .2em;
+    }
+
+    .poster{
+      align-self: center;
+      width: 17vh;
+      height: 22vh;
     }
 
     :host {
-      display: flex;
-      flex-direction: column;
-      min-width: 75px;
-      min-height: 150px;
+      width: 35vh;
+      height: 47vh;
       border: 2px solid;
       background-color: #29394b;
-      padding: 10px;
+      padding: 5px;
       color: #bdc2c5;
     }
-    h2 {
+    span{
       font-size: 1.5em;
-      flex: 1;
+
     }
-    .details-this {
-      padding-top: 1em;
-      font-size: 20px;
-      color: #ffffff;
-      text-decoration: none;
-      height:100%;
-    }
+   
   
   }

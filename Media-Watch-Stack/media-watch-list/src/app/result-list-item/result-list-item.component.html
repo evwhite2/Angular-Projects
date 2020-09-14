@@ -1,19 +1,17 @@
          
-<h2>{{title.Title}}</h2>
-<div class="columns">
-    <div class="details-this column is-pulled-left">
-        <div>{{title.Genre}}</div>
-        <div> Released: {{title.Year}} </div>
-        <span>Rating: {{title.imdbRating}}<span class="icon"><i class="far fa-star"></i></span></span>
-        <p>{{title.Plot}}</p>
-        </div>
-<div class="column is-pulled-right">
-    <div class="level">
+
+    <span>{{title.Title}}
         <button class="button is-success"(click)="onAdd()">Add</button>
         <button  title="Disabled button" disabled class="in-active button is-primary">View </button>
+    </span>
+    <div class="dets">
+        <div>{{title.Genre}}</div>
+        <div> Released: {{title.Year}} </div>
+        <div>Rating: {{title.imdbRating}}</div>
+        <p>{{title.Plot}}</p>
     </div>
-    <img src={{title.Poster}}>
-</div>
-
-
-</div>
+    <div class="poster">
+    <figure class="image">
+        <img src={{title.Poster}}>
+    </figure>
+    </div>

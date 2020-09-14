@@ -1,10 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Subject } from 'rxjs';
 import {OmdbApiService } from '../omdb-api.service';
 import { DataTile } from '../dataTile';
-import {MOCKDATA} from '../mock2';
-import { isNull } from '@angular/compiler/src/output/output_ast';
 import { MediaItemService } from '../media-item.service';
+import { MediaItemTemplate } from '../mediaItem';
 
 @Component({
   selector: 'app-search-new-media',
@@ -15,8 +14,10 @@ import { MediaItemService } from '../media-item.service';
 export class SearchNewMediaComponent implements OnInit{
   
   @Input() searchTerm: String;
+  @ViewChild('zeroResult') zeroResult: ElementRef;
 
   public result= [];
+  public attempt= false;
   public allresults;
   title;
 
@@ -25,6 +26,7 @@ export class SearchNewMediaComponent implements OnInit{
     private mediaItemService: MediaItemService) {  
       this.allresults = new Subject<DataTile[]>()
      }
+
   ngOnInit() {
     }
 
@@ -32,8 +34,15 @@ export class SearchNewMediaComponent implements OnInit{
     term= this.convertString(term);
     this.omdb.getSearchResult(term)
     .subscribe(data=>{
-      JSON.stringify(data)
-      this.allresults.observers.push(data);
+      if(data.Response==="False"){
+        // this.toggleNoResult(true);
+        this.attempt=true;
+      }else{
+        // this.toggleNoResult(false);
+      data.Search.forEach(title=>{
+        this.allresults.observers.push(title)
+        })
+      }
     })
       this.clearSearch();
       this.result =this.allresults.observers;
@@ -41,8 +50,16 @@ export class SearchNewMediaComponent implements OnInit{
 
   onAddTitle(title){
     console.log(title);
-    // let newTitle: !!!!!!!!!!! need media Item Constructor
-    this.mediaItemService.add(title)
+    let newTitle = {
+      id: 10,
+      name: title.Title,
+      medium: title.Type,
+      category: title.Genre,
+      year: title.Year,
+      watchedOn: null,
+      isFavorite: false
+    }
+    this.mediaItemService.add(newTitle)
   }
 
   convertString(term: string){
@@ -56,7 +73,16 @@ export class SearchNewMediaComponent implements OnInit{
     return term;
   }
 
+  toggleNoResult(result: boolean){
+    if(result){
+      this.zeroResult.nativeElement.classList("zeroResult");
+    }else{
+      this.zeroResult.nativeElement.classList.REMOVE("zeroResult");
+    }
+  }
+
   clearSearch(){
+    this.attempt=false;
     this.allresults.observers=[];
   }
 

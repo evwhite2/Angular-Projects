@@ -12,7 +12,6 @@ import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
     @Output() add= new EventEmitter();
 
     onAdd(){
-      console.log("added")
       this.add.emit(this.title);
     }
 

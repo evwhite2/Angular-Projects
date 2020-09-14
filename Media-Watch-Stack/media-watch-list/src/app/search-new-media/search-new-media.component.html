@@ -17,11 +17,17 @@
         </div>
     </div>
 
+    <div *ngIf="attempt">
+      <div class="sorry">Sorry, no titles found.</div>
+    </div>
+
     <div class="columns is-multiline" >
       <div *ngFor="let title of result">
        <div class="column is-half" >
           <app-result-list-item
-          [ngClass]="{ 'medium-movies': title.Type ==='movie', 'medium-series': title.Type ==='series' }"
+          [ngClass]="{ 
+            'medium-movies': title.Type ==='movie',
+           'medium-series': title.Type ==='series' }"
           [title]="title"
           (add)= "onAddTitle($event)"
           >

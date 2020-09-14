@@ -5,3 +5,13 @@
     padding-top: 1.75em;
     color: rgb(236, 29, 29);
 }
+.zeroResult{
+    display: none;
+}
+
+.sorry{
+    color: white;
+    font-size: 2em;
+    padding-top: 2em;
+    text-align: center;
+}
