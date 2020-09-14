@@ -53,9 +53,9 @@ export class SearchNewMediaComponent implements OnInit{
         id: 10,
         name: data.Title,
         medium: data.Type,
-        category: data.Genre,
+        genre: data.Genre,
         year: data.Year,
-        watchedOn: null,
+        views: null,
         isFavorite: false
       }
     this.mediaItemService.add(newTitle)

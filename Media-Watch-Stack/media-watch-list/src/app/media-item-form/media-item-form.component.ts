@@ -24,7 +24,7 @@ export class MediaItemFormComponent implements OnInit{
         Validators.required,
         Validators.pattern("[\\w\\-\\s\\/]+")
       ])),
-      category: this.formBuilder.control(""),
+      genre: this.formBuilder.control(""),
       year: this.formBuilder.control("", this.yearValidator)
     });
   }

@@ -12,33 +12,33 @@ export class MediaItemService {
       id: 1,
       name: "Carey",
       medium: "movie",
-      category: [" Horror"],
+      genre: " Horror",
       year: 1976,
-      watchedOn: 11,
+      views: 11,
       isFavorite: false
     },{
       id: 2,
       name: "Out Cold",
       medium: "movie",
-      category: [" Comedy", " Action"],
+      genre: " Action",
       year: 2001,
-      watchedOn: 342235,
+      views: 422,
       isFavorite: true
     },{
       id: 3,
       name: "Avatar",
       medium: "series",
-      category: [" Anime", " Fantasy"],
+      genre: " Anime",
       year: 2005,
-      watchedOn: 23423432,
+      views: 23423432,
       isFavorite: false
     },{
       id: 4,
       name: "Ugly Americans",
       medium: "series",
-      category: [" Comedy", " Fantasy"],
+      genre: " Comedy",
       year: 2010,
-      watchedOn: 2423345,
+      views: 420,
       isFavorite: false
     }
   ]

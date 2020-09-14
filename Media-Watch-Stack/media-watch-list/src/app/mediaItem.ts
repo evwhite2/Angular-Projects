@@ -2,8 +2,7 @@ export interface MediaItemTemplate{
     id: number,
     name: string,
     medium: string,
-    category: string,
+    genre: string,
     year: number,
-    watchedOn: number,
     isFavorite: false
 }
