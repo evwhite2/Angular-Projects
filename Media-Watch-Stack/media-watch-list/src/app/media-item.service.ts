@@ -11,7 +11,7 @@ export class MediaItemService {
     {
       id: 1,
       name: "Carey",
-      medium: "film",
+      medium: "movie",
       category: [" Horror"],
       year: 1976,
       watchedOn: 11,
@@ -19,7 +19,7 @@ export class MediaItemService {
     },{
       id: 2,
       name: "Out Cold",
-      medium: "film",
+      medium: "movie",
       category: [" Comedy", " Action"],
       year: 2001,
       watchedOn: 342235,

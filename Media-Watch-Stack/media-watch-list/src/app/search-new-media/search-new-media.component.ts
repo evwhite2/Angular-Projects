@@ -35,11 +35,9 @@ export class SearchNewMediaComponent implements OnInit{
     this.omdb.getSearchResult(term)
     .subscribe(data=>{
       if(data.Response==="False"){
-        // this.toggleNoResult(true);
         this.attempt=true;
       }else{
-        // this.toggleNoResult(false);
-      data.Search.forEach(title=>{
+        data.Search.forEach(title=>{
         this.allresults.observers.push(title)
         })
       }
@@ -49,17 +47,19 @@ export class SearchNewMediaComponent implements OnInit{
   }
 
   onAddTitle(title){
-    console.log(title);
-    let newTitle = {
-      id: 10,
-      name: title.Title,
-      medium: title.Type,
-      category: title.Genre,
-      year: title.Year,
-      watchedOn: null,
-      isFavorite: false
-    }
+    this.omdb.getTitleSearch(this.convertString(title.Title))
+    .subscribe(data=>{
+        let newTitle = {
+        id: 10,
+        name: data.Title,
+        medium: data.Type,
+        category: data.Genre,
+        year: data.Year,
+        watchedOn: null,
+        isFavorite: false
+      }
     this.mediaItemService.add(newTitle)
+    })
   }
 
   convertString(term: string){
