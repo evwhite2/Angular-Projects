@@ -25,7 +25,7 @@ export class OmdbApiService {
     let url = `http://www.omdbapi.com/?apikey=3c94efbd&s=${searchTerm}`
     return this.http.get<DataTile>(url)
     .pipe(tap( data=>{
-      console.log("Service Response: ", data), catchError(this.handleError);
+      console.log("REGULAR Service Response: ", data), catchError(this.handleError);
     }));
   }
 
@@ -33,9 +33,18 @@ export class OmdbApiService {
     let url = `http://www.omdbapi.com/?apikey=3c94efbd&t=${searchTerm}`
     return this.http.get<TitleTile>(url)
     .pipe(tap( data=>{
-      console.log(`Service Response: ${data.Title} `, data), catchError(this.handleError);
+      console.log(`TITLE service Response: ${data.Title} `, data), catchError(this.handleError);
     }));
   }
+
+  getDetailsbyId(searchTerm: string): Observable<TitleTile>{
+    let url = `http://www.omdbapi.com/?apikey=3c94efbd&i=${searchTerm}`;
+    return this.http.get<TitleTile>(url)
+    .pipe(tap( data=>{
+      console.log(`OMDBID Service Response: ${data.Title} `, data), catchError(this.handleError);
+    }));
+  }
+
 
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';

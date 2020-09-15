@@ -1,11 +1,11 @@
 
 <h2>{{mediaItem.name}}</h2>
 <div class="details-this">
-  <ng-template [ngIf]="mediaItem.views"> 
-    <div >Watched On: {{mediaItem.views | date: 'shortDate'}}</div>
-  </ng-template>
   <div>{{mediaItem.genre}}</div>
   <div> Released: {{mediaItem.year}} </div>
+  <ng-template [ngIf]="mediaItem.views"> 
+    <div > views: {{mediaItem.views}}</div>
+  </ng-template>
 </div>
 
 <div class="tools">

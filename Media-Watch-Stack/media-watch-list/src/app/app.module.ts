@@ -14,6 +14,7 @@ import { lookupListsToken, lookupLists} from './providers';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchNewMediaComponent } from './search-new-media/search-new-media.component';
 import {ResultListItemComponent} from './result-list-item/result-list-item.component';
+import { ViewSearchDetailsComponent } from './view-search-details/view-search-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import {ResultListItemComponent} from './result-list-item/result-list-item.compo
     MediaItemFormComponent,
     DashboardComponent,
     SearchNewMediaComponent, 
-    ResultListItemComponent
+    ResultListItemComponent, ViewSearchDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,15 @@
          
-
+    <div #imdbID data-id="{{title.imdbID}}"></div>
     <span>{{title.Title}}
+        <br>
         <button class="button is-success"(click)="onAdd()">Add</button>
-        <button  title="Disabled button" disabled class="in-active button is-primary">View </button>
+        <button title="button" class="in-active button is-primary">
+            <a routerLink="/details/{{title.imdbID}}">View</a>
+        </button>
     </span>
     <div class="dets">
         <div>{{title.Genre}}</div>
         <div> Released: {{title.Year}} </div>
-        <div>Rating: {{title.imdbRating}}</div>
         <p>{{title.Plot}}</p>
     </div>
     <div class="poster">

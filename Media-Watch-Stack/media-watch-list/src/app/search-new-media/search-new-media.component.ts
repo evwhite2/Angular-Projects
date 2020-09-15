@@ -55,6 +55,8 @@ export class SearchNewMediaComponent implements OnInit{
         medium: data.Type,
         genre: data.Genre,
         year: data.Year,
+        rating: data.imdbRating,
+        plot: data.Plot,
         views: null,
         isFavorite: false
       }
